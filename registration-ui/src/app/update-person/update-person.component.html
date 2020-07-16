@@ -1,0 +1,23 @@
+<h2>Atualizar pessoa</h2><br>
+<!-- <div [hidden]="submitted" style="width: 400px;"> -->
+<div class="container" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="fullName" required [(ngModel)]="person.fullName" name="fullName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Lugar de nascimento</label>
+      <input type="text" class="form-control" id="placeOfBirth" required [(ngModel)]="person.placeOfBirth" name="placeOfBirth">
+    </div>
+
+    <div class="form-group">
+      <label for="name">E-mail</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="person.email" name="email">
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <button (click)="gotoList()" class="btn btn-primary">Voltar</button><br>
+  </form>
+</div>

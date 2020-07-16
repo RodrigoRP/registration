@@ -1,0 +1,35 @@
+version: '3.5'
+
+services:
+  docker-mysql:
+    restart: always
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=registration_db
+      - MYSQL_ROOT_HOST=%
+    ports:
+    - 3306:3306
+  spring-docker-service:
+    image: spring-docker-service
+    build:
+      context: ./registration
+      dockerfile: ./Dockerfile
+    depends_on:
+      - docker-mysql
+    ports:
+      - 8088:8080
+    environment:
+      - CATALINA_OPTS=-Dspring.profiles.active=container
+      - DATABASE_HOST=docker-mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=123456
+      - DATABASE_NAME=registration_db
+      - DATABASE_PORT=3306
+  angular-docker-service:
+    image: angular-docker-service
+    build:
+      context: ./registration-ui
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200

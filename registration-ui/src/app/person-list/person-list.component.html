@@ -1,0 +1,34 @@
+<div class="container col-lg-6">
+    <div class="panel-heading">
+      <h2>Lista de pessoas</h2>
+      <button (click)="createPerson()" class="btn btn-primary">Criar nova Pessoa</button><br><br>
+      <th></th>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Nacionalidade</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of persons | async">
+            <td>{{person.fullName}}</td>
+            <td>{{person.email}}</td>
+            <td>{{person.nationality}}</td>
+            <td>
+              <div class="btn-group">
+                <button mwlConfirmationPopover (confirm)="deletePerson(person.id)" (cancel)="cancelClicked =true" class="btn btn-danger btn-sm"
+                  [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" >Delete</button>
+                <button type="button" (click)="updatePerson(person.id)" class="btn btn-danger btn-sm" style="margin-left: 10px">Editar</button>
+                <button type="button" (click)="personDetails(person.id)" class="btn btn-info btn-sm" style="margin-left: 10px">Detalhes</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

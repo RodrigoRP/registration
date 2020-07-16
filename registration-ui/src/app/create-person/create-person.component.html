@@ -1,0 +1,74 @@
+<div class="panel-body">
+  
+
+  <div *ngIf="personForm.invalid && personForm.touched" class="alert alert-danger">
+    Preencha todos os campos corretamente.
+  </div>
+ <div>
+<h2> Cadastrar Pessoa</h2>
+ </div><br><br>
+<div class="container">
+
+  <form #personForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group" [class.has-danger]="nameInput.invalid && nameInput.touched">
+      <label class="form-control-label" for="fullName">Nome *</label>
+      <input type="text" class="form-control" id="fullName" required minlength="5" [(ngModel)]="person.fullName"
+        name="fullName" #nameInput="ngModel">
+      <div *ngIf="nameInput.hasError('required') && nameInput.touched" class="form-control-feedback">Informe um nome.
+      </div>
+      <div *ngIf="nameInput.hasError('minlength') && nameInput.touched" class="form-control-feedback">O nome deve conter
+        no mínimo 5 caracteres.</div>
+    </div>
+    <div class="form-group" [class.has-danger]="emailInput.invalid && emailInput.touched">
+      <label for="email">E-mail *</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="person.email" name="email"
+        #emailInput="ngModel">
+      <div *ngIf="emailInput.invalid && emailInput.touched">Informe um e-mail válido.</div>
+    </div>
+    <div class="form-group" [class.has-danger]="placeInput.invalid && placeInput.touched">
+      <label for="placeOfBirth">Naturalidade *</label>
+      <input type="text" class="form-control" id="placeOfBirth" required [(ngModel)]="person.placeOfBirth"
+        name="placeOfBirth" #placeInput="ngModel">
+      <div *ngIf="placeInput.invalid && placeInput.touched">Informe o local de nascimento.</div>
+    </div>
+    <div class="form-group" [class.has-danger]="bornInput.invalid && bornInput.touched">
+      <label for="dob">Data de nascimento*</label>
+      <input type="date" class="form-control" id="dateOfBirth" required [(ngModel)]="person.dateOfBirth"
+        name="dateOfBirth" #bornInput="ngModel">
+      <div *ngIf="bornInput.invalid && bornInput.touched">Informe a data de nascimento.</div>
+    </div>
+    <div class="form-group" [class.has-danger]="natioInput.invalid && natioInput.touched">
+      <label for="nationality">Nacionalidade *</label>
+      <input type="text" class="form-control" id="nationality" required [(ngModel)]="person.nationality"
+        name="nationality" #natioInput="ngModel">
+      <div *ngIf="natioInput.invalid  && natioInput.touched">Informe o país de nascimento.</div>
+    </div>
+    <div class="form-group" [class.has-danger]="genderInput.invalid && genderInput.touched">
+      <label class="form-control-label">Gênero</label>
+      <select name="gender" id="gender" class="form-control" required [(ngModel)]="person.gender" #genderInput>
+        <option value="" selected>Selecione</option>
+        <option value="MALE" >Masculino</option>
+        <option value="FEMALE" >Feminino</option>
+        <option value="PREFERE_NOT_TO_SAY" >Outro</option>
+        <!-- <option *ngFor="let gender of genders" value="{{ gender }}">{{ gender }}</option> -->
+      </select>
+      <div *ngIf="genderInput.invalid && genderInput.touched">Informe o gênero.</div>
+    </div>
+    <div class="form-group" [class.has-danger]="cpfInput.invalid && cpfInput.touched">
+      <label for="cpf">CPF *</label>
+      <input type="text" class="form-control" id="cpf" required [(ngModel)]="person.cpf" name="cpf" #cpfInput="ngModel">
+      <div *ngIf="cpfInput.invalid && cpfInput.touched">Informe o CPF.</div>
+    </div>
+
+    <button [disabled]="!personForm.valid" type="submit" class="btn btn-success">Salvar</button>
+    <button (click)="gotoList()" class="btn btn-primary">Voltar</button><br>
+
+  </form>
+
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newPerson()">Add</button> -->
+</div>
