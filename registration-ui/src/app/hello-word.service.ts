@@ -11,6 +11,6 @@ export class HelloWordService {
 
   helloWorldService() {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa('admin' + ':' + '123') });
-    return this.http.get<Message>('http://localhost:8988/api/v1/greeting', {headers});
+    return this.http.get<Message>('http://localhost:8088/api/v1/greeting', {headers});
   }
 }

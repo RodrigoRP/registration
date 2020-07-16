@@ -17,7 +17,6 @@ import { ConfirmationService } from 'primeng/api/';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HttpInterceptorService } from '../core/httpInterceptor.service';
-import { SharedComponent } from './shared/shared.component';
 
 
 
@@ -30,7 +29,6 @@ import { SharedComponent } from './shared/shared.component';
     UpdatePersonComponent,
     LoginComponent,
     LogoutComponent,
-    SharedComponent,
   ],
   imports: [
     BrowserModule,
