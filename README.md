@@ -4,10 +4,10 @@
 
 Cadastro de pessoas `/api/v1/register/person`.
 Criei 2 perfis
-dev: com o banco em memoria H2, 
-test: banco mysql
+dev: H2, 
+test: mySQL
 
-Foi realizado testes na cama de servico e testes de integracao.
+Foi realizado testes na cama de serviço e testes de integração.
 
 
 ## Features
