@@ -3,7 +3,11 @@
 ## About the API
 
 Cadastro de pessoas `/api/v1/register/person`.
-Criei 2 pefis = dev: com o banco em memoria H2, test: banco mysql
+Criei 2 perfis
+dev: com o banco em memoria H2, 
+test: banco mysql
+
+Foi realizado testes na cama de servico e testes de integracao.
 
 
 ## Features
@@ -49,7 +53,7 @@ Criei 2 pefis = dev: com o banco em memoria H2, test: banco mysql
 
 ### Execução
 
-docker-compose up
+`docker-compose up` rodar a aplicacao em container
 
 usuario:admin
 password:123
