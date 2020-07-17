@@ -54,6 +54,10 @@ docker-compose up
 usuario:admin
 password:123
 
+`mvnw spring-boot:run` rodar aplicação spring
+
+`ng serve` rodar front. Navegar do endereco `http://localhost:4200/`. 
+
 ### Run
 
 By default, A API esta disponível no seguinte endereço [http://localhost:8088/api/v1/](http://localhost:8080/api/v1/)
