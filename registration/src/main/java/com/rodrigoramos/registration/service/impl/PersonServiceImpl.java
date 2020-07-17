@@ -45,6 +45,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    @Transactional
     public Person update(PersonUpdateDto personUpdateDto, Long id) {
         Person person = findById(id);
 

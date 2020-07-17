@@ -9,7 +9,7 @@ services:
       - MYSQL_DATABASE=registration_db
       - MYSQL_ROOT_HOST=%
     ports:
-    - 3366:3306
+    - 3306:3306
   spring-docker-service:
     image: spring-docker-service
     build:
@@ -25,7 +25,7 @@ services:
       - DATABASE_USER=root
       - DATABASE_PASSWORD=123456
       - DATABASE_NAME=registration_db
-      - DATABASE_PORT=3366
+      - DATABASE_PORT=3306
   angular-docker-service:
     image: angular-docker-service
     build:

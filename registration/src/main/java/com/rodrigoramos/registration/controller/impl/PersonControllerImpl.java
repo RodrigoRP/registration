@@ -18,8 +18,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-//import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.security.core.Authentication;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
@@ -49,7 +47,6 @@ public class PersonControllerImpl implements PersonController {
     }
 
     @Override
-    //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/")
     public ResponseEntity<List<Person>> findAll() {
         List<Person> personList = personService.findAll();
