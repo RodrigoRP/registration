@@ -3,6 +3,8 @@
 ## About the API
 
 Cadastro de pessoas `/api/v1/register/person`.
+Criei 2 pefis = dev: com o banco em memoria H2, test: banco mysql
+
 
 ## Features
 
